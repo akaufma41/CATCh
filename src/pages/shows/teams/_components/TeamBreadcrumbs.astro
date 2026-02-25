@@ -1,0 +1,25 @@
+---
+type Props = {
+  teamName?: string;
+};
+
+const { teamName } = Astro.props;
+---
+
+<nav class="text-primary-purple relative -bottom-12">
+  <a href="/" class="underline">Home</a>
+  <span aria-hidden="true">&nbsp;/&nbsp;</span>
+  <a href="/shows" class="underline">Shows</a>
+  <span aria-hidden="true">&nbsp;/&nbsp;</span>
+  {
+    teamName ? (
+      <>
+        <a href="/shows/teams" class="underline">Teams</a>
+        <span aria-hidden="true">&nbsp;/&nbsp;</span>
+        <span class="font-bold">{teamName}</span>
+      </>
+    ) : (
+      <span class="font-bold">Teams</span>
+    )
+  }
+</nav>

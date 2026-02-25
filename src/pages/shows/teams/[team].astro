@@ -1,0 +1,43 @@
+---
+import RootLayout from "~/layouts/RootLayout.astro";
+import TeamBreadcrumbs from "./_components/TeamBreadcrumbs.astro";
+import { getTeamBySlug, teams } from "./_data/teams";
+
+const { team: teamSlug } = Astro.params;
+if (!teamSlug) return Astro.redirect("/shows/teams");
+
+const team = getTeamBySlug(teamSlug);
+if (!team) return Astro.redirect("/shows/teams");
+---
+
+<RootLayout title={`${team.name} - Teams`} class="md:px-8 lg:px-16">
+  <div class="px-6 lg:px-0">
+    <TeamBreadcrumbs teamName={team.name} />
+  </div>
+
+  <h1
+    class="text-primary-purple text-6xl font-serif font-bold px-4 pt-12 pb-10 bg-shapes"
+  >
+    {team.name}
+  </h1>
+
+  <div class="flex flex-col lg:flex-row gap-10 px-4 lg:px-0 pb-16">
+    <div class="lg:w-1/2">
+      <img
+        src={team.image}
+        alt={team.name}
+        width={724}
+        height={407}
+        class="w-full rounded-lg object-cover aspect-[16/9]"
+      />
+    </div>
+    <div class="lg:w-1/2 flex flex-col gap-4">
+      <h2 class="text-primary-purple font-serif font-bold text-2xl">
+        About {team.name}
+      </h2>
+      <p class="text-lg text-gray-600 italic">
+        Team description coming soon.
+      </p>
+    </div>
+  </div>
+</RootLayout>

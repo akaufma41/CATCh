@@ -1,0 +1,33 @@
+---
+type Props = {
+  name: string;
+  slug: string;
+  image: string;
+};
+
+const { name, slug, image } = Astro.props;
+---
+
+<a
+  href={`/shows/teams/${slug}`}
+  aria-label={`Learn more about ${name}`}
+  class="block group rounded overflow-hidden shadow-lg bg-peach"
+>
+  <div class="relative bg-black bg-opacity-10">
+    <span
+      class="text-center absolute z-10 inset-0 h-fit m-auto px-1 text-white text-xl font-serif font-bold opacity-0 transition-opacity group-hover:opacity-100"
+    >
+      {name}
+    </span>
+    <img
+      src={image}
+      alt={name}
+      width={724}
+      height={407}
+      class="group-hover:opacity-20 transition-opacity w-full aspect-[16/9] object-cover"
+    />
+  </div>
+  <p class="p-4 text-center text-primary-purple font-serif font-bold text-lg">
+    {name}
+  </p>
+</a>

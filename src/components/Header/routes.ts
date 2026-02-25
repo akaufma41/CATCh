@@ -14,10 +14,10 @@ export const routes: Record<string, Array<Route>> = {
     //   label: "Performers",
     //   path: "/performers",
     // },
-    // {
-    //   label: "Teams",
-    //   path: "/teams",
-    // },
+    {
+      label: "Teams",
+      path: "/shows/teams",
+    },
     {
       label: "Videos",
       path: "https://www.youtube.com/@CATChTheater/playlists?view=1&sort=lad&flow=grid",
